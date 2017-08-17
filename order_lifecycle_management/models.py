@@ -2,7 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import User
 # Create your models here.
-from customer_profile.models import KnownAdresses
+from user_profile.models import KnownAdresses
 from catalogue_management.models import Service
 from car_information.models import CarType
 
@@ -39,9 +39,12 @@ class Order(models.Model):
     worker_arrived_at = models.DateTimeField(blank=True,null=True)
     worker_started_at = models.DateTimeField(blank=True,null=True)
     worker_finished_at = models.DateTimeField(blank=True,null=True)
+    service_duration = models.IntegerField(default=0)
 
     cancelled = models.BooleanField(default=False)
     changed = models.BooleanField(default=False)
+
+
 
 #class OrderChangeLog():
 #    order_id

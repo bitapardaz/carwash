@@ -4,5 +4,14 @@ from django.contrib import admin
 
 from models import Car,CarType
 
-admin.site.register(Car)
+class CarAdmin(admin.ModelAdmin):
+
+    list_display = ('title','brand_logo','subtitle','get_car_type', )
+    list_filter = ('car_type__title',)
+    def get_car_type(self,obj):
+        return obj.car_type.title
+
+
+
+admin.site.register(Car, CarAdmin)
 admin.site.register(CarType)

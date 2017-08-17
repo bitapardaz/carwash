@@ -39,11 +39,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'catalogue_management',
     'car_information',
-    'customer_profile',
+    'user_profile',
     'system_config',
     'inventory_management',
     'staff_time_management',
     'order_lifecycle_management',
+    'region_management',
 )
 
 MIDDLEWARE_CLASSES = (

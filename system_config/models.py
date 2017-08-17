@@ -21,8 +21,20 @@ class Config(models.Model):
     # time it takes for the InventoryItemRequest to be processed.
     inventory_item_processing_time = models.IntegerField(default=10)
 
-    def __unicode__(self):
-        return self.service_list
+    # Threshold above which the customer is deemed to be a bad
+    # customer in the sense that she cancells the orders too
+    # frequently
+    # see customer_profile.number_of_cancellation
+    # at the end of every month, this gets reset
+    bad_customer_threshold = models.IntegerField(default=4)
+
+
+    # absence threshold for the ConsumerProfile
+    absence_threshold_days = models.IntegerField(default=10)
+
+
+#    def __unicode__(self):
+#        return self.service_list
 
 class AlertText(models.Model):
     title = models.CharField(max_length=1000)
