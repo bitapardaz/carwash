@@ -28,10 +28,8 @@ class Config(models.Model):
     # at the end of every month, this gets reset
     bad_customer_threshold = models.IntegerField(default=4)
 
-
     # absence threshold for the ConsumerProfile
     absence_threshold_days = models.IntegerField(default=10)
-
 
 #    def __unicode__(self):
 #        return self.service_list

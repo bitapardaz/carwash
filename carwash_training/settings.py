@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'staff_time_management',
     'order_lifecycle_management',
     'region_management',
+    'promotions',
 )
 
 MIDDLEWARE_CLASSES = (

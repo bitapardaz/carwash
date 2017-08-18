@@ -39,11 +39,15 @@ class UserProfile(models.Model):
     number_of_cancellation = models.IntegerField(default=0)
 
 
+
+
     def __unicode__(self):
         return self.user.username
 
 class ConsumerProfile(models.Model):
     user = models.ForeignKey(User)
+    balance = models.IntegerField(default=0)
+    gift_balance = models.IntegerField(default=0)
     is_into_cars = models.BooleanField(default=0)
     likes_offroad = models.BooleanField(default=0)
     last_carwash_request = models.DateTimeField()

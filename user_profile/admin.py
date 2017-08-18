@@ -33,7 +33,7 @@ class MobileDeviceAdmin(admin.ModelAdmin):
 
 class ConsumerProfileAdmin(admin.ModelAdmin):
 
-    list_display = ('get_user','is_into_cars','likes_offroad', 'last_carwash_request', 'is_absent')
+    list_display = ('get_user','balance','gift_balance', 'last_carwash_request', 'is_absent')
     list_filter = ('is_into_cars','likes_offroad',)
 
     def get_user(self,obj):
