@@ -111,5 +111,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
+# on local machine
 MEDIA_ROOT = '/home/npdroid/Workspace/carwash_media_storage'
+# on server
+MEDIA_ROOT = '/home/carwash_media_storage'
+
 MEDIA_URL = '/media/'
