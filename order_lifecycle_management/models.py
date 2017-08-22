@@ -5,10 +5,12 @@ from django.contrib.auth.models import User
 from user_profile.models import KnownAdresses
 from catalogue_management.models import Service
 from car_information.models import CarType
+from region_management.models import Region
 
 class OrderStatus(models.Model):
     title = models.CharField(max_length=100)
     display_order = models.IntegerField(default=0)
+    image = models.ImageField(upload_to="images",null=True,blank=True)
 
     def __unicode__(self):
         return self.title
@@ -35,6 +37,7 @@ class Order(models.Model):
     service = models.ForeignKey(Service)
     car_type = models.ForeignKey(CarType)
     comment = models.CharField(max_length=1000)
+    region = models.ForeignKey(Region,null=True,blank=True)
 
     original_price = models.IntegerField(default=0)
     was_elibible_for_discount = models.BooleanField(default=False)

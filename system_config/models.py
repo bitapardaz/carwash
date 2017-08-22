@@ -33,6 +33,7 @@ class Config(models.Model):
 
 #    def __unicode__(self):
 #        return self.service_list
+    is_service_type_dependency_updated = models.BooleanField(default=False)
 
 class AlertText(models.Model):
     title = models.CharField(max_length=1000)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from region_management.models import Region
 
 # Create your models here.
 class PromotionCode(models.Model):
@@ -14,6 +15,10 @@ class PromotionCode(models.Model):
 
     def __unicode__(self):
         return self.title + "--" + self.title
+
+class PromotionCodeRegion(models.Model):
+    region = models.ForeignKey(Region)
+    promotion_code = models.ForeignKey(PromotionCode)
 
 
 class GiftCodeConsumption(models.Model):

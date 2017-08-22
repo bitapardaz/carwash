@@ -2,8 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 from models import PromotionCode,GiftCodeConsumption, ReferralHistory, ReferralGiftType, ReferralGift, ReferralHistory
+from models import PromotionCodeRegion
 from django.core import urlresolvers
-
 
 class PromotionCodeAdmin(admin.ModelAdmin):
     list_display = ('title', 'code', 'valid_from','expiry_date' , 'is_active',)
@@ -29,6 +29,17 @@ class GiftCodeConsumptionAdmin(admin.ModelAdmin):
 
     get_promotion_title.allow_tags=True
 
+
+class PromotionCodeRegionAdmin(admin.ModelAdmin):
+    list_display = ('get_promotion_code',)
+    list_filter = ('region__title',)
+
+    def get_promotion_code(self,obj):
+        return obj.promotion_code.title + "--" + obj.promotion_code.code
+
+
+
+
 class ReferralHistoryAdmin(admin.ModelAdmin):
     list_display = ('get_referred', 'get_new_commer','action_date')
 
@@ -48,6 +59,7 @@ class ReferralGiftAdmin(admin.ModelAdmin):
 
 
 admin.site.register(PromotionCode,PromotionCodeAdmin)
+admin.site.register(PromotionCodeRegion,PromotionCodeRegionAdmin)
 admin.site.register(GiftCodeConsumption, GiftCodeConsumptionAdmin)
 admin.site.register(ReferralGiftType)
 admin.site.register(ReferralGift,ReferralGiftAdmin)
