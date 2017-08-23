@@ -2,6 +2,8 @@ from django.db import models
 
 class CarType(models.Model):
     title = models.CharField(max_length=100)
+    confirmed = models.BooleanField(default=False)
+    icon = models.ImageField(upload_to='images',null=True,blank=True)
 
     def __unicode__(self):
         return self.title

@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'order_lifecycle_management',
     'region_management',
     'promotions',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

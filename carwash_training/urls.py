@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^v1/user_profile/', include('user_profile.urls')),
+    url(r'^v1/system_config/', include('system_config.urls')),
+    url(r'^v1/catalogue_management/', include('catalogue_management.urls')),
+    url(r'^v1/car_information/', include('car_information.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
