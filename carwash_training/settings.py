@@ -47,9 +47,12 @@ INSTALLED_APPS = (
     'region_management',
     'promotions',
     'rest_framework',
+    'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware,
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -118,3 +121,5 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 MEDIA_ROOT = '/home/carwash_media_storage'
 
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_ALLOW_ALL=TRUE
