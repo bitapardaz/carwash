@@ -51,7 +51,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'corsheaders.middleware.CorsMiddleware,
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -122,4 +122,4 @@ MEDIA_ROOT = '/home/carwash_media_storage'
 
 MEDIA_URL = '/media/'
 
-CORS_ORIGIN_ALLOW_ALL=TRUE
+CORS_ORIGIN_ALLOW_ALL=True
