@@ -10,7 +10,7 @@ from models import ServiceType,Service
 # Create your views here.
 @api_view(['GET'])
 def get_services(request):
-    services = Service.objects.all()
+    services = Service.objects.all( )
     serializer = ServiceSerializer(services,many=True)
     return Response(serializer.data)
 

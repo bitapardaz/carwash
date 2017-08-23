@@ -4,7 +4,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import utilities
 
-
 @api_view(['POST'])
 def sign_up(request):
     '''
@@ -12,8 +11,7 @@ def sign_up(request):
     and sends it to the input number.
     request from existing user or a new user.
     '''
-    #mobile_number = request.data.get('mobile')
-    mobile_number = "09128199668"
+    mobile_number = request.data.get('mobile')
     verification_code = "1234"
 
     print "printing mobile_number"
@@ -27,8 +25,19 @@ def sign_up(request):
     return Response(output)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def verify(request):
-    output = {}
-    output['status'] = "True"
+    '''
+    get a mobile number and a code and checks
+    if they match.
+    '''
+    mobile_number = request.data.get('mobile')
+    code = request.data.get('code')
+    output={}
+
+    if code == "1234":
+        output['status'] = "verified"
+    else:
+        output['status'] = "failed"
+
     return Response(output)
